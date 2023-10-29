@@ -26,7 +26,7 @@ The above code would add a new packet context menu with a menu of “HTTP” and
 
 When the menu is clicked, it opens a browser with a Google search and the HTTP Host field's value as the search query:
 
-![Image](image4.png "The result when the "Search host in Google" button is clicked")
+![Image](image4.png 'The result when the "Search host in Google" button is clicked')
 
 # Running a Lua script in Wireshark
 The quickest way to run an ad-hoc Lua script in Wireshark is from the ``Tools -> Lua -> Evaluate`` menu:
