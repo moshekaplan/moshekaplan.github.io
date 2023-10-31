@@ -4,7 +4,6 @@ date: 2023-09-10T23:14:27-04:00
 draft: false
 ---
 
-# Background
 One of the more common challenges in the world of incident response is the multitude of tools in an analyst’s toolbox. Pivoting from one tool to another is often slow, with much copy-pasting between their interfaces. For example, when you’re analyzing a website, you might want to check its reputation on Google Safe Browsing or scan it with SSL Labs. Or when examining traffic to a host, you might want to run ping or traceroute to it.
 
 To make pivoting from Wireshark to other tools easier, I developed a new Wireshark Lua function named ``register_packet_menu()`` to enable adding custom packet context menus and actions based on the packet fields. As such, a user can add a command like “Search Domain in Google” with the packet’s ``http.host`` field. This is extremely similar to ArcSight's Integration Commands.
