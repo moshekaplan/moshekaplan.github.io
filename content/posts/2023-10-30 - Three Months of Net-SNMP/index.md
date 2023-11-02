@@ -390,7 +390,7 @@ If we see an increase in allocated memory, we have an SNMP handler with a potent
 With an approach planned, I wrote a script to test every single one of the 7000+ supported OIDs. However, there were 365 times that the memory usage changed - and sometimes even decreased. I learned that Net-SNMP caches values and so some fluctuations were tied to the cache storage and clearing.
 
 Shortly after my initial test I had taken some vacation and when I returned, there was a significant change of circumstance.
-While I was out, the vendor had released an update that supposedly fixed snmpd's memory leak(s) and it had been installed on one of our two systems.
+While I was out, the vendor had released an update that supposedly included fixes for snmpd's known memory leak(s) and it had been installed on one of our two systems.
 So I had a perfect setup for A/B testing: I could run my script to check for memory leaks against both systems and see how memory consumption differed between the two versions.
 I was pleasantly surprised to see that in contrast to the old release having 365 OIDs with differences in memory utilization, the new release had only 17. So although it was far from being a precise measurement, an order of magnitude difference does indicate improvement.
 
