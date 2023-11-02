@@ -89,7 +89,7 @@ make
 This led to detecting and fixing [two minor issues](https://github.com/net-snmp/net-snmp/pulls?q=is%3Apr+author%3Amoshekaplan+Use+size_t+), where the result from `strlen` was stored in an `int` instead of a `size_t`.
 
 After I finished playing around with Coverity and scan-build, I decided to also [integrate Net-SNMP with GitHub's CodeQL tool](https://github.com/net-snmp/net-snmp/pull/727), to see if its analyzer would find anything.
-CodeQL did have a few find findings, but it seemed like most of them were either low impact or false positives, and so I did not submit any patches based on CodeQL's output.
+CodeQL did have a few findings, but it seemed like most of them were either low impact or false positives, and so I did not submit any patches based on CodeQL's output.
 
 # Using existing test suites and pull requests to find bugs
 
@@ -158,7 +158,8 @@ More information on Net-SNMP's testing is available here: [https://net-snmp.sour
 # Setting up a local snmpd instance
 
 My next approach to look for memory leaks was to run Net-SNMP's utilities and see if any leaks were detected.
-Setting up a local instance on my Ubuntu 23.04 system was as easy as running:
+To fully exercise the utilities, I'd need to run my own local instance of snmpd.
+Setting up a local instance of snmpd on my Ubuntu 23.04 system was as easy as running:
 
 ```bash
 sudo apt install snmpd
@@ -271,7 +272,7 @@ I then fuzzed my compiled Net-SNMP utilities command-line arguments:
 AFL_NO_FORKSRV=1 AFL_NO_AFFINITY=1 AFL_PRELOAD="/home/user/Desktop/AFLplusplus/utils/argv_fuzzing/argvfuzz64.so" libtool --mode=execute afl-fuzz -m none -i fuzz_in -o fuzz_snmpget_out -- ./apps/snmpget
 ```
 
-Afl-fuzz generated so many crashes that I decided to write a short Python script to aid reviewing the crashes:
+Afl-fuzz generated so many crashes that I wrote a short Python script to aid reviewing the crashes:
 
 ```python
 import os
@@ -390,7 +391,7 @@ If we see an increase in allocated memory, we have an SNMP handler with a potent
 With an approach planned, I wrote a script to test every single one of the 7000+ supported OIDs. However, there were 365 times that the memory usage changed - and sometimes even decreased. I learned that Net-SNMP caches values and so some fluctuations were tied to the cache storage and clearing.
 
 Shortly after my initial test I had taken some vacation and when I returned, there was a significant change of circumstance.
-While I was out, the vendor had released an update that supposedly included fixes for snmpd's known memory leak(s) and it had been installed on one of our two systems.
+While I was out, the vendor had released an update that supposedly included fixes for snmpd's known memory leaks and it had been installed on one of our two systems.
 So I had a perfect setup for A/B testing: I could run my script to check for memory leaks against both systems and see how memory consumption differed between the two versions.
 I was pleasantly surprised to see that in contrast to the old release having 365 OIDs with differences in memory utilization, the new release had only 17. So although it was far from being a precise measurement, an order of magnitude difference does indicate improvement.
 
@@ -412,8 +413,8 @@ There's still plenty to do, like:
 
 * Tracing attack surface for malicious devices monitored by SNMP, trap senders, or subagents
 * Reviewing [legacy vulnerabilities](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=net-snmp) for additional attack vectors
-* Reviewing dependencies for vulnerabilities. Dependencies can be listed with "apt-rdepends snmpd"
-* Adding CI jobs for more checkers, like cppcheck, clang-tidy, and code coverage
+* Reviewing dependencies for vulnerabilities. Dependencies can be listed with "apt-rdepends snmpd`
+* Adding CI jobs for more checkers, like `cppcheck`, `clang-tidy`, and code coverage
 * Writing more fuzzers, like for the command-line parers or configuration parsers
 * Auditing or fuzzing module-specific code for vulnerabilities, like `hr_proc`, `hr_network`, `ifTable`, `ifXTable`, `ipAddressTable`, and `hrh_storage`
 * Creating a CI job to publish manpages and doxygen documentation
