@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = "Moshe Kaplan's Blog"
 theme = 'Hugo-Octopress'
 
+googleAnalytics = "G-MHDEBZTGMC"
+
 [params]
   author = "Moshe Kaplan"
   # --- Start sidebar options ---
