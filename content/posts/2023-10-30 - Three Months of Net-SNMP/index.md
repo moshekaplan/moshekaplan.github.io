@@ -413,7 +413,7 @@ There's still plenty to do, like:
 
 * Tracing attack surface for malicious devices monitored by SNMP, trap senders, or subagents
 * Reviewing [legacy vulnerabilities](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=net-snmp) for additional attack vectors
-* Reviewing dependencies for vulnerabilities. Dependencies can be listed with "apt-rdepends snmpd`
+* Reviewing dependencies for vulnerabilities. Dependencies can be listed with `apt-rdepends snmpd`
 * Adding CI jobs for more checkers, like `cppcheck`, `clang-tidy`, and code coverage
 * Writing more fuzzers, like for the command-line parers or configuration parsers
 * Auditing or fuzzing module-specific code for vulnerabilities, like `hr_proc`, `hr_network`, `ifTable`, `ifXTable`, `ipAddressTable`, and `hrh_storage`
