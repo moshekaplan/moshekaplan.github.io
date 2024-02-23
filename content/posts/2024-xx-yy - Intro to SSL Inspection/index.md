@@ -1,0 +1,63 @@
+---
+title: "Intro to SSL Inspection"
+date: 2024-02-28T08:00:00-04:00
+draft: true
+---
+
+Concepts 
+What is the problem with plaintext communication? 
+How does SSL solve that problem? 
+What is a certificate? 
+What is a certificate chain? 
+What is a certificate store? 
+
+SSL Inspection 
+SSL as a problem -> No visibility into web traffic for other security capabilities (IDS, DLP, URL Filtering, external devices like full PCAP or Zeek)
+SSL inspection as a solution 
+How SSL inspection uses a signing cert from a custom CA to avoid MITM errors 
+Note that this is only possible with a custom CA loaded in the cert store 
+
+How SSL inspection could work with the certificate and private key  
+
+SSL Inspection on Palo Alto firewalls 
+Decryption rules 
+Can’t use fields only available after decryption 
+Decryption profiles (TLS versions, ciphersuites, etc.) 
+Inbound inspection 
+Outbound inspection 
+
+Why inbound and outbound need different approaches 
+Rule Design
+General outbound decryption rule
+Bypasses above based on source or destination IP 
+SNI and cert subject as a concept, and how that allows domain-based bypasses 
+Performance concerns 
+
+SSL Inspection Challenges 
+Need to replicate failures (expiration, invalid cert, invalid chain) 
+Custom certificate stores (e.g., Python, Java, Firefox) 
+> Users will get an error that the certificate is untrusted 
+> Requires adding custom CA to that certificate store 
+
+PA certificate store is missing a certificate 
+> Users gets a warning page on their browser that the server’s certificate is untrusted, but error doesn’t manifest outside at home
+
+Need to add missing certificates to the PA’s certificate store 
+Certificate pinning 
+
+Active vs passive MITM  for inbound inspection
+> When is it needed? RSA vs EC 
+> Significance: Missing leaf cert can cause handshake issues 
+Which mode of operation is used is not present in the decryption logs and can make a difference when the target server
+ presents a full certificate chain, but the PA only has the leaf certificate, as the client might require the full chain be present. So if the PA only has the leaf cert and brokers the connection, it could cause problems when the client uses an ECC-based algorithm
+ in the handshake, as the PA would then only present the leaf certificate, which would cause the connection to fail. 
+
+Missing intermediate certificate 
+Browsers use AIA (Authority Information Access), but PA doesn’t support, so we’d need to load in leaf certificates, otherwise certificate will be marked as untrusted 
+
+Failures with SMTP SSL certificate validation 
+Mail servers generally don’t validate certificates, adding in validation here caused too many errors with untrusted roots. 
+
+TLS v1.3 challenges
+* esni and ech
+
