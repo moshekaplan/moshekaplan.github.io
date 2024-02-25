@@ -66,3 +66,24 @@ Mail servers generally don’t validate certificates, adding in validation here 
 TLS v1.3 challenges
 * esni and ech
 
+Implementing SSL inspection
+
+Determine policy requirements for what domains or categories of domains should be exempted (e.g., healthcare data in an environment subject to HIPAA)
+
+Determine whether your SSL inspection solution will be used as a technical control to block insecure SSL/TLS protocols or ciphersuites
+
+Create bypasses for known problematic sites, like those that use certificate pinning or client certificates
+
+Use other tools, like Zeek, to detect client certs in advance
+
+Implement monitoring to detect issues
+
+Detect SSL inspected connections that failed due to client certificates
+
+Detect SSL inspected connections that failed due to unsupported cipher suites
+
+
+If you used centralized package installs, preload your root certificate into your trust stores.
+Java
+Python
+npm
