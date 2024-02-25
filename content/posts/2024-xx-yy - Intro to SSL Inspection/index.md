@@ -5,8 +5,13 @@ draft: true
 ---
 
 Concepts 
-What is the problem with plaintext communication? 
+What is the problem with plaintext communication?
 How does SSL solve that problem? 
+
+Note that although I'll be referring to this technology as SSL inspection, it is the same for TLS.[^1]
+
+[^1]: According to Tim Dierks, the entire renaming from SSL to TLS was part of a negotiation between Netscape and Microsoft so that it wouldn't look like the IETF was simply adopting Netscape's implementation. For more info, see https://tim.dierks.org/2014/05/security-standards-and-name-changes-in.html .
+
 What is a certificate? 
 What is a certificate chain? 
 What is a certificate store? 
