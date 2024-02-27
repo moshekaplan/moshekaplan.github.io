@@ -1,5 +1,5 @@
 ---
-title: "Intro to SSL Inspection"
+title: "Implementing SSL Inspection"
 date: 2024-02-28T08:00:00-04:00
 draft: true
 ---
