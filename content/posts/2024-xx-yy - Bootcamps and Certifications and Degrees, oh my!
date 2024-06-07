@@ -1,0 +1,63 @@
+---
+title: "Bootcamps and Certifications and Degrees, oh my!"
+date: 2024-02-28T08:00:00-04:00
+draft: true
+---
+
+Many people looking to become employed in cybersecurity ask if they should go to boot camps, obtain a certification, or complete a degree. The most common question immediately following is "which one?"
+
+Each have pros/cons. But what's important is to be strategic about how you use limited time and money. 
+
+The way I like to look at it as that when someone looks like to hire, there area a few important things:
+* Actually having your resume seen
+* Demonstrating capability to the hiring manager 
+* Demonstrating that you'll be a useful member of the team and organization 
+
+One without the others tends to be useless. You can be the most skilled candidate in the world, but if your resume never gets to a hiring manager, you're not getting a job.
+
+Likewise, if you have all the paper credentials, but can't convince someone to hire you, the credentials are useless. 
+
+So, with this context:
+
+A degree is an easy way to claim a base level of knowledge and competency . It's also very useful as a way to demonstrate minimum qualifications in a bureaucratic place. The problem is the time and the cost . So people look into faster options, like boot camps.
+
+The problem is, many bootcamps are so accelerated that they only teach the minimum amount of concepts - everything else is focused on being a practitioner. This is problematic because without the fundamentals, you have no basis to build on top. So you end up having people that can tell you which button to push, but can't tell you what it actually does, and so are not able to handle any deviation from what they were taught. Another problem is that bootcamps profit from churning out students, and so they are incentivized to accept all applicants and churn them out as quickly as possible. In contrast, degree programs tend to be a little more particular as to who they accept, because it could impact their ability to receive government funding. Most bootcamps don't have a strong reputation and even those affiliated with well known institutions are sometimes entirely outsourced programs.
+
+Certifications are a little different. The purpose of a certification is to objectively prove competency. There are two problems:
+1) does it really?
+2) is that proof useful?
+
+The first problem is that many people pass certification exams by cramming the material and studying exam dumps. The effect of that is that many people with the certification don't actually know the material - they just studied enough to pass. 
+
+The second problem is that anyone can make up their own certification. Just because a certification exists does not mean it's worth anything.
+
+So where does this put us for cyber security? 
+
+First, realize that no bootcamp, certification, or degree will guarantee anything. However, some are more useful for learning, proving competency , or for convincing someone to hire you. 
+
+
+A certification exam can be very useful for demonstrating minimum competency and as something for HR to filter upon. Because when HR receives 500 applicants for a posting, the easiest way to pare that number down is to mandate that candidates have a degree or certification. Also, some positions, especially those that involve billing clients, greatly desire certifications as a way to justify their bill rates.
+
+A bootcamp will rarely convince someone to hire you, as they are often not highly regarded . However, they can be useful in concert with other qualifications, like a certification, to demonstrate some knowledge.
+
+
+Of course, some candidates don't bother with any of these, and apply solely on the basis of their experience. 
+
+----
+
+If you are a non-degree candidate, I recommend the following:
+
+Learn the fundamentals. There is no substitute for understanding how things work, at least at a surface level. You can get this from YouTube, books, a good bootcamp, or from just your own playing around. 
+
+Do projects to demonstrate competency in relevant areas. This can be as simple as analyzing a packet  capture or building an entire home lab. 
+
+Get certifications that are relevant to the employees you'd like to be hired at. While there is plenty of room to argue about the usefulness of the content or what skill it demonstrates, those are objectively irrelevant - what matters is that the hiring manager or their organization demands it, so it'll be much easier to be hired if you have the certification they require. For cyber security, Security+ is often extremely beneficial for entry level staff.
+
+
+Getting a first position as someone without a degree is objectively harder. Unfortunately, many employers use degree as a simple filter for entry level positions.
+
+The key is therefore to start getting work experience ASAP, so that you're no longer a truly entry level candidate. You'd still be considered early career, but not completely fresh. If you've been doing your own work on the side, you can likely use that to bolster your candidacy, as someone with three years experience is better than someone without any. 
+
+The other thing you'd want to gain relevant employment as quickly as possible, and try to map your previous experience to your desired role, so that it's less of a career restart and more of a pivot.
+
+For example, a paramedic switching to cyber security incident response will have common experience of triaging emergency situations, making judgement calls, and following processes and procedures
