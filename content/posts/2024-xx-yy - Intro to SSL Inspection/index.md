@@ -84,3 +84,6 @@ Which mode of operation is used is not present in the decryption logs and can ma
 * Implement decryption in small pieces!
 * * To avoid breaking too much at a time
 * * To ensure resource utilization isn't a problem
+
+# References and Further Reading:
+* [Hanno Böck: The Rocky Road to TLS 1.3 and better Internet Encryption (35C3, 2018-12-27)](https://media.ccc.de/v/35c3-9607-the_rocky_road_to_tls_1_3_and_better_internet_encryption)
