@@ -102,7 +102,7 @@ Similarly, Anaconda Python supports setting the SSL certificate configuration gl
 
 [Python requests uses the `REQUESTS_CA_BUNDLE` environment variable](https://requests.readthedocs.io/en/latest/user/advanced/#proxies) and [Curl uses the `CURL_CA_BUNDLE` environment variable](https://curl.se/docs/sslcerts.html).
 
-Java uses the `keytool` application to import a certificate into it's 'keystore' file, which is its name for the Java installation's certificate store.
+Java uses the `keytool` application to import a certificate into its 'keystore' file, which is Java's name for the Java installation's certificate store.
 
 ## Client certificates
 
