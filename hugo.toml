@@ -44,6 +44,9 @@ googleAnalytics = "G-MHDEBZTGMC"
   description = "Moshe Kaplan's blog, usually about programming and cybersecurity"
   defaultKeywords = ["Moshe Kaplan" , "cybersecurity" , "programming" , "security"]
 
+  # Site's custom favicon, this is a relative path to the `/static` directory
+  favicon = "moshe.jpeg"
+
 [menu]
 [[menu.main]]
     name = 'Home'
