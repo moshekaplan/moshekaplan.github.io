@@ -17,7 +17,19 @@ The ``register_packet_menu()`` function is documented in the [Wireshark Develope
 
 In practice, ``register_packet_menu()`` could be used as follows:
 
-![Image](image2.png "Sample code for using register_packet_menu()")
+```lua
+local function search_google(...)
+    local fields =  {...}
+    for i, field in ipairs( fields ) do
+        if (field.name == 'http.host') then
+            browser_open_url("https://www.google.com/search?q=" .. field.value)
+            break
+        end
+    end
+end
+
+register_packet_menu("HTTP/Search host in Google", search_google, "http.host")
+```
 
 The above code would add a new packet context menu with a menu of “HTTP” and a submenu of “Search host in Google” for all packets that contain the field “http.host”, as displayed below:
 
@@ -36,9 +48,11 @@ This button opens a text box in which you can paste Lua code and immediately run
 
 ![Image](image6.png "Evaluating Lua code for ad-hoc execution")
 
-Another way Wireshark can run a Lua script is by passing it as an argument on the CLI when Wireshark is launched with ”-X lua_script:”. For example:
+Another way Wireshark can run a Lua script is by passing it as an argument on the CLI when Wireshark is launched with `-X lua_script:`. For example:
 
-![Image](image7.png "Passing a Lua script to Wireshark")
+```bash
+wireshark -X lua_script:path/to/myscript.lua
+```
 
 While both the previous approaches are fine for ad-hoc usage, if you have a script that you’d like to run every time Wireshark launches, you can place the Lua script in the plugin folder. Per the [Wireshark User Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChPluginFolders.html), the plugin folder’s location depends on your operating system:
 
