@@ -114,7 +114,7 @@ make
 
 Then run the test suite:
 
-```
+```bash
 export ASAN_OPTIONS="detect_leaks=1:log_path=$PWD/asan.log:log_exe_name=1"
 make testall
 ```
