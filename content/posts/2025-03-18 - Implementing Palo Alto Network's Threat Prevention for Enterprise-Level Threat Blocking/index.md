@@ -8,7 +8,7 @@ Network Intrusion detection systems have been around for decades. However, going
 
 # What is Palo Alto Networks Threat Prevention?
 
-Network IDS and IPS have historically been implemented at the network perimeter. However, that means that if someone is able to get past the perimeter's security controls, they have unfettered access to all internal systems. Palo Alto Networks (PAN) firewalls work a little differently. Instead of implementing network IDS/IPS as a separate system at the network perimeter, the Network IDS/IPS capabilities (known as *Threat Prevention*) are managed per-firewall rule and so we can have security controls enabled for every single network flow that goes through the firewall.
+Network IDS and IPS have historically been implemented at the network perimeter. However, that means that if someone can get past the perimeter's security controls, they have unfettered access to all internal systems. Palo Alto Networks (PAN) firewalls work a little differently. Instead of implementing network IDS/IPS as a separate system at the network perimeter, the Network IDS/IPS capabilities (known as *Threat Prevention*) are managed per-firewall rule and so we can have security controls enabled for every single network flow that goes through the firewall.
 
 PAN firewalls Threat Prevention licensing consists of [Antivirus, Anti-spyware, and Vulnerability Protection](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/subscriptions/all-subscriptions). As described in [PAN's docs](https://docs.paloaltonetworks.com/network-security/security-policy/administration/security-profiles):
 
@@ -21,7 +21,7 @@ Closely related are also File Blocking and Data Filtering profiles:
 > - [File Blocking](https://docs.paloaltonetworks.com/content/techdocs/en_US/network-security/security-policy/administration/security-profiles/security-profile-file-blocking.html) profiles monitor and regulate the types of files transferred through the network, helping prevent the dissemination of malicious or unwanted file types. By restricting or blocking certain file extensions or content types, you can minimize the risk of malware propagation.
 > - [Data Filtering](https://docs.paloaltonetworks.com/content/techdocs/en_US/network-security/security-policy/administration/security-profiles/security-profile-data-filtering.html) profiles, also known as data loss prevention (DLP) profiles, focus on protecting sensitive data by identifying and controlling its transmission. These profiles ensure that confidential information, such as credit card numbers or social security numbers, isn't inadvertently leaked or accessed by unauthorized parties.
 
-To enable each of these capabilities, you need to create a *Profile* for each capability and then assign it to the relevant firewall rules. Attaching the same collection of profiles over and over gets old quick, so the PAN firewall supports creating *[Security Profile Groups](https://docs.paloaltonetworks.com/pan-os/11-2/pan-os-web-interface-help/objects/objects-security-profile-groups)*, which are collections of profiles for each threat prevention capability which can be assigned to a rule as a single unit .
+To enable each of these capabilities, you need to create a *Profile* for each capability and then assign it to the relevant firewall rules. Attaching the same collection of profiles over and over gets old quick, so the PAN firewall supports creating *[Security Profile Groups](https://docs.paloaltonetworks.com/pan-os/11-2/pan-os-web-interface-help/objects/objects-security-profile-groups)*, which are collections of profiles for each threat prevention capability which can be assigned to a rule as a single unit.
 
 # Planning Threat Prevention Implementation
 
@@ -89,7 +89,7 @@ One thing to note is that enabling threat prevention can significantly lower tra
 
 To ensure high-quality data, be sure that your time period is sufficiently long and contains any irregular activities like failover, load testing, and any recurring special events.
 
-For this analysis, we'll also need traffic data, so please ensure that you have either "Log At Session Start" and "Log at Session End" enabled for every rule, together with a "Log Forwarding Profile" to send the logs to some sort of centralized system like Splunk or ElasticSearch.
+For this analysis, we'll also need traffic data, so please ensure that you have either "Log at Session Start" and "Log at Session End" enabled for every rule, together with a "Log Forwarding Profile" to send the logs to some sort of centralized system like Splunk or ElasticSearch.
 
 # Analyzing threat prevention alert data
 
@@ -121,7 +121,7 @@ Unfortunately, there marks the end of our freebies. However, firewall rules with
 - Under 25 threat hits
 - More than 250,000 traffic sessions
 
-The reason behind these constraints are that they ensure that we have enough data to analyze, while still having a low enough amount of threats that we can be confident that blocking these will not impact business operations. Even at the minimum constraints, 25 threat hits out of 250,000 would be 0.01% of connections detected as containing threats. For your own environment, you might choose to either tighten or loosen these constraints. Another point to consider is that you might have different criteria for development vs production networks, as failures are generally more tolerable in development networks.
+The rationale for these constraints is that they ensure that we have enough data to analyze, while still having a low enough number of threats that we can be confident that blocking these will not impact business operations. Even at the minimum constraints, 25 threat hits out of 250,000 would be 0.01% of connections detected as containing threats. For your own environment, you might choose to either tighten or loosen these constraints. Another point to consider is that you might have different criteria for development vs production networks, as failures are generally more tolerable in development networks.
 
 To support this analysis, I created a spreadsheet with the following columns:
 
@@ -152,7 +152,7 @@ Some rules had a single threat alert 20,000 times. This would be a clear signal 
 
 Some rules had many threats alerts, but based on the source host, it was clear that they were vulnerability scanners. Likewise other threat alerts had a source user of a known penetration tester. Ideally, we'd filter these out in our initial data collection, either by creating separate firewall rules for our penetration testers and vulnerability scanners, or by filtering them out in our query.
 
-A tricky part is that if you have a jump box, bastion host, a load balancer, or other system effectively doing Network Address Translation (NAT), it'll be impossible to conclusively state whether the traffic is from a vulnerability scanner or not, because you don't have the original IP. In that case, you can try to look for other traffic patterns that might indicative of a vulnerability scanner. Some possibilities include that the threat activities follows the same schedule as your vulnerability scanners or that the types of threats detected are not those that would have false positives occur naturally, like Heartbleed and Log4J.
+A tricky part is that if you have a jump box, bastion host, a load balancer, or other system effectively doing Network Address Translation (NAT), it'll be impossible to conclusively state whether the traffic is from a vulnerability scanner or not, because you don't have the original IP. In that case, you can try to look for other traffic patterns that might indicative of a vulnerability scanner. Some possibilities include that the threat logs follows the same schedule as your vulnerability scanners or that the types of threats detected are not those that would have false positives occur naturally, like Heartbleed and Log4J.
 
 If you can't conclusively determine that blocking the threats won't be problematic, another possibility is to ask the system owner if they're willing to accept the risk of  potentially blocking legitimate traffic for the sake of better security controls.
 
