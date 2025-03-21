@@ -1,10 +1,10 @@
 ---
-title: "Implementing Palo Alto Network's Threat Prevention for Enterprise-Level Threat Blocking"
+title: "Implementing Palo Alto Networks' Threat Prevention for Enterprise-Level Threat Blocking"
 date: 2025-03-18T08:00:00-04:00
 draft: false
 ---
 
-Network Intrusion detection systems have been around for decades. However, going from intrusion _detection_ to intrusion _prevention_ can be scary because false positives can break production systems. In this writeup, I describe how I was able to deploy Palo Alto Network's threat prevention in blocking mode in an enterprise environment to help us move our network security closer to zero-trust. I am also publishing the [Python script](https://github.com/moshekaplan/palo_alto_firewall_scripts/blob/main/threat_prevention_hardening.py) used to make the bulk firewall changes and create the spreadsheet for analyzing threat alerts.
+Network Intrusion detection systems have been around for decades. However, going from intrusion _detection_ to intrusion _prevention_ can be scary because false positives can break production systems. In this writeup, I describe how I was able to deploy Palo Alto Networks' threat prevention in blocking mode in an enterprise environment to help us move our network security closer to zero-trust. I am also publishing the [Python script](https://github.com/moshekaplan/palo_alto_firewall_scripts/blob/main/threat_prevention_hardening.py) used to make the bulk firewall changes and create the spreadsheet for analyzing threat alerts.
 
 # What is Palo Alto Networks Threat Prevention?
 
