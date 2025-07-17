@@ -9,5 +9,6 @@ git push
 
 To run the website locally:
 ```
+git clone https://github.com/moshekaplan/moshekaplan.github.io.git --recursive
 hugo server
 ```
