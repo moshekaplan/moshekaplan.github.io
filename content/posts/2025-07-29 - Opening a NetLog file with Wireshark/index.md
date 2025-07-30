@@ -4,11 +4,11 @@ date:  2025-07-29T21:00:00-04:00
 draft: false
 ---
 
-In November 2024, I came across a [tweet](https://x.com/NathanMcNulty/status/1858039304259514619) from Nathan McNulty:
+In November 2024, I came across a [tweet](https://x.com/NathanMcNulty/status/1858039304259514619) from Nathan McNulty which taught me something new: Chrome and Edge support capturing network data directly from within the browser and logging it to a file!
 
 ![Image](<1. Tweet.png> "Nathan McNulty's Tweet")
 
-I did some digging and [NetLog](https://www.chromium.org/developers/design-documents/network-stack/netlog/) is great! This is a full-featured logging mechanism within the browser which doesn't require administrator access. And it's supported in both Chrome (`chrome://net-export`) and [Edge](https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/app-integration/use-netlog-capture-network-traffic) (`edge://net-export`)!
+I did some digging and [NetLog](https://www.chromium.org/developers/design-documents/network-stack/netlog/) is great! This is a full-featured logging mechanism within the browser and it doesn't require administrator access. And it's supported in both Chrome (`chrome://net-export`) and [Edge](https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/app-integration/use-netlog-capture-network-traffic) (`edge://net-export`)!
 
 # Wireshark Support?
 
