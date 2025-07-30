@@ -632,11 +632,10 @@ Unfortunately, this seems to be as far as we can take the Python script for now.
 
 This was a fun project to learn about NetLog files and how I could convert them to PCAP files so they could be opened with Wireshark. However, our work isn't done yet - the next step will be to write a [libwiretap](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/README) module to support loading NetLog files directly in Wireshark without needing to convert them with Scapy. To be continued!
 
-Code:
-* [`ScapySessionBuilder.py`](https://github.com/moshekaplan/parse_netlog/blob/main/ScapySessionBuilder.py)
-* [`parse_net_viewer.py`](https://github.com/moshekaplan/parse_netlog/blob/main/parse_net_viewer.py)
+* Python Code: https://github.com/moshekaplan/parse_netlog
 
 # References and Further Reading
+
 * https://www.chromium.org/developers/design-documents/network-stack/netlog/
 * https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/app-integration/use-netlog-capture-network-traffic
 * https://gitlab.com/wireshark/wireshark/-/issues/20289
