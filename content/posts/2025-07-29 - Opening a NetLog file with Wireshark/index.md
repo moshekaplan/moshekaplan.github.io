@@ -630,7 +630,7 @@ Unfortunately, this seems to be as far as we can take the Python script for now.
 
 # Conclusion
 
-This was a fun project to figure out how NetLog files work and how I could convert them to a format supported by Wireshark. However, our work isn't done yet - the next step is to write a [libwiretap](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/README) module to support loading NetLog files directly in Wireshark. To be continued!
+This was a fun project to learn about NetLog files and how I could convert them to PCAP files so they could be opened with Wireshark. However, our work isn't done yet - the next step will be to write a [libwiretap](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/README) module to support loading NetLog files directly in Wireshark without needing to convert them with Scapy. To be continued!
 
 Code:
 * [`ScapySessionBuilder.py`](https://github.com/moshekaplan/parse_netlog/blob/main/ScapySessionBuilder.py)
