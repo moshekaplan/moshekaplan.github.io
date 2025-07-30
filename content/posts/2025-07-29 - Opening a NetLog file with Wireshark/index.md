@@ -4,7 +4,6 @@ date:  2025-07-29T21:00:00-04:00
 draft: false
 ---
 
-# NetLog
 In November 2024, I came across a [tweet](https://x.com/NathanMcNulty/status/1858039304259514619) from Nathan McNulty:
 
 ![Image](<1. Tweet.png> "Nathan McNulty's Tweet")
