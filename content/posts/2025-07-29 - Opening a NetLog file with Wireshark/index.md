@@ -20,7 +20,7 @@ Sake Blok, one of the Wireshark core developers, expressed support for adding lo
 
 ![Image](<3. Sake Blok interested.png> "Sake Blok interested")
 
-Net-Export is an interesting data source. It's structured as JSON, but rather than requests and responses, each browser event that occurs is emitted and stored in the JSON. So although I was able to extract and decode the byte fields with the 10 lines of Python code below, that was insufficient for getting it to a place where it could be loaded in Wireshark with the ["Import Hex Dump" feature](https://www.wireshark.org/docs/wsug_html_chunked/ChIOImportSection.html) or [`text2pcap`](https://www.wireshark.org/docs/man-pages/text2pcap.html).
+NetLog is an interesting data source. It's structured as JSON, but rather than requests and responses, each browser event that occurs is emitted and stored in the JSON. So although I was able to extract and decode the byte fields with the 10 lines of Python code below, that was insufficient for getting it to a place where it could be loaded in Wireshark with the ["Import Hex Dump" feature](https://www.wireshark.org/docs/wsug_html_chunked/ChIOImportSection.html) or [`text2pcap`](https://www.wireshark.org/docs/man-pages/text2pcap.html).
 
 ```python
 import base64, codecs, json
