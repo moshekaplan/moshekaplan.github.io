@@ -12,11 +12,11 @@ I did some digging and [NetLog](https://www.chromium.org/developers/design-docum
 
 # Wireshark Support?
 
-NetLog is powerful, but its GUI is busy and I'm much more comfortable with using Wireshark to analyze traffic. At first glance, it seemed that NetLogs don't include a pcap of the traffic. However, when I shared this capability in the Wireshark Discord, I was gently corrected that it should be possible to convert the NetLog file Net-Export creates into something Wireshark could handle:
+NetLog's viewer is powerful, but its GUI is busy and I'm much more comfortable with using Wireshark to analyze traffic. At first glance, it seemed that NetLogs don't include a pcap of the traffic. However, when I shared this capability in the Wireshark Discord, I was gently corrected that it should be possible to convert the NetLog file Net-Export creates into something Wireshark could handle:
 
 ![Image](<2. Wireshark correction.png> "Corrected in the Wireshark Discord")
 
-Sake Blok, one of the Wireshark core developers, expressed support for adding loading the NetLog files into Wireshark. I created a [ticket](https://gitlab.com/wireshark/wireshark/-/issues/20289) so that this wouldn't be forgotten, but this looks like a fun project so let's get started!
+Sake Blok, one of the Wireshark core developers, expressed interest in having support for NetLog files added to Wireshark. I created a [ticket](https://gitlab.com/wireshark/wireshark/-/issues/20289) so that this wouldn't be forgotten, but this looks like a fun project so let's get started!
 
 ![Image](<3. Sake Blok interested.png> "Sake Blok interested")
 
@@ -37,7 +37,7 @@ open('hexfile.dmp', 'wb').write(hex_output)
 
 ![Image](<4. Harder than expected.png> "Harder than expected")
 
-Let's dive into this a little more closely. First, let's look at some plaintext traffic by starting a capture from `edge://net-export/` , opening `http://neverssl.com`, and then stopping the capture. I'll save this in `edge-net-export-log - neverssl.json`. To make visual inspection easier, and I pretty-printed it with <https://jsonformatter.org/json-pretty-print> and saved that as `edge-net-export-log - neverssl_pp.json`.
+Let's dive into this a little more closely. First, let's look at some plaintext traffic by starting a capture from `edge://net-export/` , opening `http://neverssl.com`, and then stopping the capture. I'll save this in `edge-net-export-log - neverssl.json`. To make visual inspection easier I pretty-printed it with <https://jsonformatter.org/json-pretty-print> and saved that as `edge-net-export-log - neverssl_pp.json`.
 
 ![Image](<5. Capture Window.png> "Capture Window")
 
@@ -133,7 +133,7 @@ SOCKET_BYTES_RECEIVED 79
 SOCKET_BYTES_SENT 77
 ```
 
-This is great! We have an entry type of `SOCKET_BYTES_SENT` for data sent and `SOCKET_BYTES_RECEIVED` for data received!
+This is great! We have entry types of `SOCKET_BYTES_SENT` for data sent and `SOCKET_BYTES_RECEIVED` for data received!
 
 So now, let's see if we can turn those into a PCAP by dumping it to a text file and using Wireshark's `text2pcap` to turn it into a PCAP file for us. First let's dump the bytes into a text file:
 
