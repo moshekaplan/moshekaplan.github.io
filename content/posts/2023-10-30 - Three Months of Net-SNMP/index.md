@@ -415,7 +415,7 @@ There's still plenty to do, like:
 * Reviewing [legacy vulnerabilities](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=net-snmp) for additional attack vectors
 * Reviewing dependencies for vulnerabilities. Dependencies can be listed with `apt-rdepends snmpd`
 * Adding CI jobs for more checkers, like `cppcheck`, `clang-tidy`, and code coverage
-* Writing more fuzzers, like for the command-line parers or configuration parsers
+* Writing more fuzzers, like for the command-line parsers or configuration parsers
 * Auditing or fuzzing module-specific code for vulnerabilities, like `hr_proc`, `hr_network`, `ifTable`, `ifXTable`, `ipAddressTable`, and `hrh_storage`
 * Creating a CI job to publish manpages and doxygen documentation
 * Writing or improving API documentation for all functions
