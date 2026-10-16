@@ -1,6 +1,6 @@
 ---
 title: "Planning the Implementation of Palo Alto Networks HIP Controls"
-date: 2026-10-16T08:00:00-04:00
+date: 2026-10-16T00:00:00-04:00
 draft: false
 ---
 
@@ -45,7 +45,7 @@ You may also choose to lean on your other tooling. For example, Microsoft Defend
 
 Before you can collect any HIP data, you need to have a GlobalProtect license and enable data collection in the GlobalProtect Portal. Then, your GlobalProtect Gateway will collect HIP data when your GP clients connect and periodically refresh it. If you want HIP data from Prisma Access to be sent to a Panorama, you'll need to do additional configuration.
 
-The HIP data collected will be matches for the HIP Objects and Profiles in your configuration. This data is collected even if the Objects and Profiles are not used anywhere. However, the GlobalProtect Gateway will only log matches - it won't collect failures. What this means is that if we want to have visibility for both compliant and non-compliant hosts, we'll need to have HIP profiles for both compliance and non-compliance.
+The HIP data collected will be matches for the HIP Objects and Profiles in your configuration. This data is collected even if the Objects and Profiles are not used anywhere. However, the GlobalProtect Gateway will only log matches - it won't collect failures. What this means is that if we want to have visibility for both compliant and non-compliant hosts, we'll need to have HIP profiles for both compliance and non-compliance. (Thank you to `novakayne` for sharing this approach with me.)
 
 This leads to structuring our data collection as follows:
 
