@@ -1,5 +1,5 @@
 ---
-title: "Planning the Implementation of Palo Alto Networks HIP Controls"
+title: "How I Almost Deployed Palo Alto Networks HIP Controls"
 date: 2026-10-16T00:00:00-04:00
 draft: false
 ---
